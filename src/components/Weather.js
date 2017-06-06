@@ -4,10 +4,10 @@ import { View, Text } from 'react-native';
 
 class Weather extends Component {
 
-  componentWillMount() {
+componentWillMount() {
 
-    console.log('cwm')
-  }
+}
+
 render() {
   const { viewStyle } = styles;
     return (
