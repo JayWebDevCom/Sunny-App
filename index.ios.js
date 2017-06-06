@@ -2,12 +2,16 @@
 
 // Import a library to help create a Component
 import React from 'react';
-import { AppRegistry } from 'react-native';
-import Header from './src/components/header';
+import { AppRegistry, View } from 'react-native';
+import Header from './src/components/Header';
+import Weather from './src/components/Weather';
 
 // Create a Component
 const App = () => (
-    <Header headerText={'this varies'} />
+    <View>
+      <Header headerText={'this varies potentially'} />
+      <Weather />
+    </View>
   );
 
 // Render it to the device
