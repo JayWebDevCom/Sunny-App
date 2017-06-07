@@ -18,7 +18,6 @@ class Weather extends Component {
   }
 
     renderWeather() {
-      console.log('wdata', this.state)
       if(this.state.items.data != null) {
       return <Text>{this.state.items.data.weather[0].date}</Text>
     }
@@ -26,9 +25,9 @@ class Weather extends Component {
 
     render() {
       return (
-
-        <View>{this.renderWeather()}</View>
-
+        <View>
+        <Text>The date for the weather request: {this.renderWeather()} </Text>
+        </View>
       )
 
     }
