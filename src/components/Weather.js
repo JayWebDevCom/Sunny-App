@@ -11,15 +11,17 @@ class Weather extends Component {
       .then((responseData) => {
         this.setState({
           items: responseData,
-        })
-        .done();
-      })
+        });
 
+      })
+      .done();
   }
 
     renderWeather() {
       console.log('wdata', this.state)
-      // return <Text>{this.state.items.data.weather[0].date}</Text>
+      if(this.state.items.data != null) {
+      return <Text>{this.state.items.data.weather[0].date}</Text>
+    }
     }
 
     render() {
