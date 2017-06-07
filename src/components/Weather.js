@@ -17,16 +17,23 @@ class Weather extends Component {
       .done();
   }
 
-    renderWeather() {
-      if(this.state.items.data != null) {
+    renderDate() {
+      if (this.state.items.data != null) {
       return <Text>{this.state.items.data.weather[0].date}</Text>
+    }
+    }
+
+    renderWeather() {
+      if (this.state.items.data != null) {
+      return <Text>{this.state.items.data.weather[0].maxtempC}</Text>
     }
     }
 
     render() {
       return (
         <View>
-        <Text>The date for the weather request: {this.renderWeather()} </Text>
+        <Text>The date for the weather request: {this.renderDate()}</Text>
+        <Text>The maxium temerature for this day is: {this.renderWeather()} &deg;C</Text>
         </View>
       )
 
