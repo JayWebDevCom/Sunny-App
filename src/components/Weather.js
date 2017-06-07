@@ -6,31 +6,29 @@ class Weather extends Component {
   state = { items: {} };
 
   componentWillMount() {
-      fetch('https://api.worldweatheronline.com/premium/v1/weather.ashx?key=d1f3365447a2494cb8b115449170706&q=London&format=json&num_of_days=5')
-      .then((response) => response.json())
-      .then((responseData) => {
-        this.setState({
-          items: responseData,
-        });
-
-      })
-      .done();
+    fetch('https://api.worldweatheronline.com/premium/v1/weather.ashx?key=d1f3365447a2494cb8b115449170706&q=London&format=json&num_of_days=5')
+    .then((response) => response.json())
+    .then((responseData) => {
+      this.setState({
+        items: responseData,
+      });
+    })
+    .done();
   }
 
-    renderWeather() {
-      if(this.state.items.data != null) {
+  renderWeather() {
+    if(this.state.items.data != null) {
       return <Text>{this.state.items.data.weather[0].date}</Text>
     }
-    }
-
-    render() {
-      return (
-        <View>
-        <Text>The date for the weather request: {this.renderWeather()} </Text>
-        </View>
-      )
-
-    }
   }
 
-  export default Weather;
+  render() {
+    return (
+      <View>
+      <Text>The date for the weather request: {this.renderWeather()} </Text>
+      </View>
+    )
+  }
+}
+
+export default Weather;
