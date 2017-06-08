@@ -22,11 +22,6 @@ exports[`sunny app renders header correctly 1`] = `
     accessible={true}
     allowFontScaling={true}
     ellipsizeMode="tail"
-    style={
-      Object {
-        "fontSize": 14,
-      }
-    }
   >
     SunInformed
   </Text>
