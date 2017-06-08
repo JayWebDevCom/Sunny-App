@@ -34,7 +34,7 @@ class Weather extends Component {
         <View style={styles.container}>
           <View style={styles.content}>
             <Text>The date for the weather request: {this.renderDate()}</Text>
-            <Text>The maxium temerature for this day is: {this.renderWeather()} &deg;C</Text>
+            <Text>The maximum temperature for this day is: {this.renderWeather()} &deg;C</Text>
           </View>
         </View>
       )
@@ -45,12 +45,18 @@ class Weather extends Component {
   const styles = StyleSheet.create({
     container: {
       // flex: 1,
-      backgroundColor: '#bdc3c7'
+      backgroundColor: '#e6ffe6'
     },
     content: {
       alignItems: 'center',
       flexGrow: 1,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      height: 50,
+      paddingTop: 20,
+      paddingBottom: 20,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5
     }
   });
 
