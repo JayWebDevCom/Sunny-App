@@ -7,7 +7,7 @@ const Header = (props) => {
   const { textStyle, viewStyle, smallerTextStyle } = styles;
   return (
     <View style={viewStyle}>
-    <Text style={textStyle}>SunInformed</Text>
+    <Text style={textStyle}>fsdgdsfgdfgsdfg</Text>
     <Text style={smallerTextStyle}>{props.headerText}</Text>
     </View>
   );
