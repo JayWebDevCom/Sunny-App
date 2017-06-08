@@ -29,14 +29,26 @@ class Weather extends Component {
     }
     }
 
+    renderWeatherDesc() {
+      if (this.state.items.data != null) {
+      return <Text>{this.state.items.data.current_condition[0].weatherDesc[0].value}</Text>
+    }
+    }
+
+    renderIcon() {
+      if (this.state.items.data != null) {
+      return <image source={this.state.items.data.current_condition[0].weatherIconUrl[0].value} />
+      console.log(this.renderIcon())
+    }
+    }
+
     render() {
       return (
         <View>
         <Text>The date for the weather request: {this.renderDate()}</Text>
-        <Text>The maxium temerature for this day is: {this.renderWeather()} &deg;C</Text>
+        <Text>The weather for this day is {this.renderWeatherDesc()} with a maximum temperature of {this.renderWeather()} &#8451;</Text>
         </View>
-      )
-
+      );
     }
   }
 
