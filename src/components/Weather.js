@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import axios from 'axios';
+import { View, Text, StyleSheet } from 'react-native';
 
 class Weather extends Component {
   state = { items: {} };
@@ -14,6 +13,44 @@ class Weather extends Component {
       });
     })
     .done();
+  }
+  renderWeatherDesc() {
+    let textString = ''
+
+    function dayFromNumber(number) {
+      switch(number) {
+        case 0:
+        return "Sunday";
+        break;
+        case 1:
+        return "Monday";
+        break;
+        case 2:
+        return "Tuesday";
+        break;
+        case 3:
+        return "Wednesday";
+        break;
+        case 4:
+        return "Thursday";
+        break;
+        case 5:
+        return "Friday";
+        break;
+        case 6:
+        return "Saturday";
+      }
+    }
+
+    if (this.state.items.data != null) {
+      this.state.items.data.weather.forEach(function(day) {
+        const dayNumber = new Date(day.date).getDay()
+        if (day.maxtempC > 15 && day.hourly[3].weatherDesc[0].value === 'Sunny') {
+          textString += dayFromNumber(dayNumber) + " will be " + day.hourly[3].weatherDesc[0].value + " \n"
+        }
+      });
+      return <Text>{textString}</Text>
+    }
   }
 
   renderWeather() {
@@ -46,27 +83,58 @@ class Weather extends Component {
 
     if(this.state.items.data != null) {
       this.state.items.data.weather.forEach(function(day) {
-        let dayNumber = new Date(day.date).getDay()
+        const dayNumber = new Date(day.date).getDay()
         if(day.maxtempC > 15){textString =
-          textString + "Max temperature on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"};
+          textString + "The weather on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"};
         });
-        console.log(textString);
         return <Text>{textString}</Text>
+      }
+    }
 
+    renderWeather() {
+      if (this.state.items.data != null) {
+        return <Text>{this.state.items.data.weather[0].maxtempC}</Text>
       }
     }
 
     render() {
       return (
-        <View>
+        <View style={styles.container}>
+        <View style={styles.content}>
         <Text>
-        All days over the next 20 days where the temperature *might* creep above 20C in London:
+        The next 20 days where the temperature *might* creep above 20&#8451; in London:
         {"\n"}{"\n"}
-        {this.renderWeather()}
+        {this.renderWeatherDesc()}
         </Text>
+        </View>
         </View>
       )
     }
   }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      backgroundColor: '#e6f2ff',
+      alignItems: 'center',
+      // marginTop: 5,
+      marginBottom: 5
+
+    },
+    content: {
+      alignItems: 'center',
+      // flexGrow: 1,
+      justifyContent: 'center',
+      height: 'auto',
+      width: 330,
+      backgroundColor: '#e6ffe6',
+      paddingTop: 20,
+      paddingBottom: 20,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5
+    }
+  });
 
   export default Weather;
