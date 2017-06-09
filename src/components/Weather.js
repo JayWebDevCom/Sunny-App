@@ -47,8 +47,8 @@ class Weather extends Component {
 
   const styles = StyleSheet.create({
     container: {
-      flex: 2,
-      justifyContent: 'center',
+      flex: 1,
+      justifyContent: 'flex-start',
       backgroundColor: '#e6f2ff',
       alignItems: 'center',
       // marginTop: 5,
