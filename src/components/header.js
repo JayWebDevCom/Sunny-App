@@ -15,7 +15,8 @@ const Header = (props) => {
 
 const styles = {
   textStyle: {
-    fontSize: 14
+    fontWeight: 'bold',
+    fontSize: 24
   },
   smallerTextStyle: {
     fontSize: 9,

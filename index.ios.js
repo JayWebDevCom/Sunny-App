@@ -9,14 +9,11 @@ import Footer from './src/components/Footer';
 
 // Create a Component
 const App = () => (
-    <View style={{ flex: 1, justifyContent: 'space-between' }}>
+    <View style={styles.body}>
       <Header headerText={'this varies potentially'} />
       <Weather />
-      <Weather />
-      <View style={styles.body} />
-      <View style={{ justifyContent: 'space-between' }}>
       <Footer footerText={'Copyright © 2017 Anthony, Alex, Jaiye, Will'} />
-      </View>
+
     </View>
   );
 
@@ -27,6 +24,7 @@ const styles = {
   body: {
     marginTop: 2,
     flex: 1,
-    backgroundColor: '#e6f2ff'
+    backgroundColor: '#e6f2ff',
+    justifyContent: 'center'
   }
 };
