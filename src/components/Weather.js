@@ -53,50 +53,6 @@ class Weather extends Component {
     }
   }
 
-  renderWeather() {
-    let textString = ''
-
-    function dayFromNumber(number) {
-      switch(number) {
-        case 0:
-        return "Sunday";
-        break;
-        case 1:
-        return "Monday";
-        break;
-        case 2:
-        return "Tuesday";
-        break;
-        case 3:
-        return "Wednesday";
-        break;
-        case 4:
-        return "Thursday";
-        break;
-        case 5:
-        return "Friday";
-        break;
-        case 6:
-        return "Saturday";
-      }
-    }
-
-    if(this.state.items.data != null) {
-      this.state.items.data.weather.forEach(function(day) {
-        const dayNumber = new Date(day.date).getDay()
-        if(day.maxtempC > 15){textString =
-          textString + "The weather on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"};
-        });
-        return <Text>{textString}</Text>
-      }
-    }
-
-    renderWeather() {
-      if (this.state.items.data != null) {
-        return <Text>{this.state.items.data.weather[0].maxtempC}</Text>
-      }
-    }
-
     render() {
       return (
         <View style={styles.container}>
