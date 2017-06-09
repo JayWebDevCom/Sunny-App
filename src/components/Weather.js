@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 class Weather extends Component {
   state = { items: {} };
@@ -91,17 +91,50 @@ class Weather extends Component {
       }
     }
 
+    renderWeather() {
+      if (this.state.items.data != null) {
+        return <Text>{this.state.items.data.weather[0].maxtempC}</Text>
+      }
+    }
+
     render() {
       return (
-        <View>
+        <View style={styles.container}>
+        <View style={styles.content}>
         <Text>
         The next 20 days where the temperature *might* creep above 20&#8451; in London:
         {"\n"}{"\n"}
         {this.renderWeatherDesc()}
         </Text>
         </View>
+        </View>
       )
     }
   }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      backgroundColor: '#e6f2ff',
+      alignItems: 'center',
+      // marginTop: 5,
+      marginBottom: 5
+
+    },
+    content: {
+      alignItems: 'center',
+      // flexGrow: 1,
+      justifyContent: 'center',
+      height: 'auto',
+      width: 330,
+      backgroundColor: '#e6ffe6',
+      paddingTop: 20,
+      paddingBottom: 20,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5
+    }
+  });
 
   export default Weather;
