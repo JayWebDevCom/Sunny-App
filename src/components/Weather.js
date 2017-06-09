@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import axios from 'axios';
 
 class Weather extends Component {
   state = { items: {} };
@@ -14,6 +13,44 @@ class Weather extends Component {
       });
     })
     .done();
+  }
+  renderWeatherDesc() {
+    let textString = ''
+
+    function dayFromNumber(number) {
+      switch(number) {
+        case 0:
+        return "Sunday";
+        break;
+        case 1:
+        return "Monday";
+        break;
+        case 2:
+        return "Tuesday";
+        break;
+        case 3:
+        return "Wednesday";
+        break;
+        case 4:
+        return "Thursday";
+        break;
+        case 5:
+        return "Friday";
+        break;
+        case 6:
+        return "Saturday";
+      }
+    }
+
+    if (this.state.items.data != null) {
+      this.state.items.data.weather.forEach(function(day) {
+        const dayNumber = new Date(day.date).getDay()
+        if (day.maxtempC > 15 && day.hourly[3].weatherDesc[0].value === 'Sunny') {
+          textString += dayFromNumber(dayNumber) + " will be " + day.hourly[3].weatherDesc[0].value + " \n"
+        }
+      });
+      return <Text>{textString}</Text>
+    }
   }
 
 <<<<<<< HEAD
@@ -67,13 +104,11 @@ class Weather extends Component {
 
     if(this.state.items.data != null) {
       this.state.items.data.weather.forEach(function(day) {
-        let dayNumber = new Date(day.date).getDay()
+        const dayNumber = new Date(day.date).getDay()
         if(day.maxtempC > 15){textString =
-          textString + "Max temperature on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"};
+          textString + "The weather on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"};
         });
-        console.log(textString);
         return <Text>{textString}</Text>
-
       }
     }
 <<<<<<< HEAD
@@ -86,9 +121,9 @@ class Weather extends Component {
       return (
         <View>
         <Text>
-        All days over the next 20 days where the temperature *might* creep above 20C in London:
+        The next 20 days where the temperature *might* creep above 20&#8451; in London:
         {"\n"}{"\n"}
-        {this.renderWeather()}
+        {this.renderWeatherDesc()}
         </Text>
         </View>
       )
