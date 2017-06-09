@@ -3,12 +3,11 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 // make a coponent
-const Header = (props) => {
+const Header = () => {
   const { textStyle, viewStyle, smallerTextStyle } = styles;
   return (
     <View style={viewStyle}>
     <Text style={textStyle}>SunInformed</Text>
-    <Text style={smallerTextStyle}>{props.headerText}</Text>
     </View>
   );
 };
@@ -16,21 +15,24 @@ const Header = (props) => {
 const styles = {
   textStyle: {
     fontWeight: 'bold',
-    fontSize: 24
+    fontSize: 24,
+    color: '#ffffff'
   },
   smallerTextStyle: {
     fontSize: 9,
     marginTop: 5
   },
   viewStyle: {
-    backgroundColor: '#e6f2ff',
+    backgroundColor: '#0099e6',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 65,
+    height: 45,
     paddingTop: 15,
+    paddingBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5
+    shadowOpacity: 0.5,
+    marginTop: 20
   }
 };
 
