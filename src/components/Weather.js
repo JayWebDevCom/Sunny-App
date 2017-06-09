@@ -57,11 +57,11 @@ class Weather extends Component {
       return (
         <View style={styles.container}>
         <View style={styles.content}>
-        <Text style={{ alignSelf: 'center' }}>
-        The next 20 days where the temperature *might* creep above 20&#8451; in London:
+        <Text>
+        The next 20 days where the temperature {"\n" }*might* creep above 20&#8451; in London:
         {"\n"}{"\n"}
-        {this.renderWeatherDesc()}
         </Text>
+        {this.renderWeatherDesc()}
         </View>
         </View>
       )
