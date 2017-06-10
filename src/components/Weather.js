@@ -49,10 +49,9 @@ class Weather extends Component {
           textString += dayFromNumber(dayNumber) + " will be " + day.hourly[3].weatherDesc[0].value + " \n"
         }
       });
-      return <Text>{textString}</Text>
+      return (<Text>{textString}</Text>);
     }
   }
-
 
     render() {
       return (
