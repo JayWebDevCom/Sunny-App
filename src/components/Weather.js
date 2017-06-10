@@ -82,7 +82,7 @@ class Weather extends Component {
       alignItems: 'center',
       // flexGrow: 1,
       justifyContent: 'center',
-      height: 'auto',
+      // height: 'auto',
       width: 330,
       backgroundColor: '#e6ffe6',
       paddingTop: 20,
