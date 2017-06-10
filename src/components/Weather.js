@@ -47,10 +47,11 @@ class Weather extends Component {
     if(this.state.items.data != null) {
       this.state.items.data.weather.forEach(function(day) {
         let dayNumber = new Date(day.date).getDay()
-        if(day.maxtempC > 15){textString =
-          textString + "Max temperature on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"};
+        if(day.maxtempC > 15){
+          textString = "Max temperature on " + dayFromNumber(dayNumber) + " will be " + day.maxtempC.toString() + " \n"
+        };
         });
-        console.log(textString);
+
         return <Text>{textString}</Text>
 
       }
