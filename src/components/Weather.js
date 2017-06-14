@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 class Weather extends Component {
   state = { items: {} };
@@ -185,7 +185,7 @@ class Weather extends Component {
         const monthNumber = new Date(day.date).getMonth()
         const dateNumber = new Date(day.date).getDate()
         if (day.maxtempC > 15 && day.hourly[3].weatherDesc[0].value === 'Sunny') {(
-          textString += dayFromNumber(dayNumber) + " " + dateFromNumber(dateNumber) + " " + monthFromNumber(monthNumber) + " will be " + day.hourly[3].weatherDesc[0].value + " and " + day.maxtempC + '°C' +  " \n")
+          textString += dayFromNumber(dayNumber) + " " + dateFromNumber(dateNumber) + " " + monthFromNumber(monthNumber) + " will be " + day.hourly[3].weatherDesc[0].value.toLowerCase() + " and " + day.maxtempC + '°C' +  " \n")
         }
       });
       return <Text>{textString}</Text>
@@ -194,12 +194,14 @@ class Weather extends Component {
 
     render() {
       return (
-        <View>
+        <View style={styles.container}>
+        <View style={styles.content}>
         <Text>
         Nice weather coming up in London:
         {"\n"}{"\n"}
         </Text>
         {this.renderWeatherDesc()}
+        </View>
         </View>
       )
     }
