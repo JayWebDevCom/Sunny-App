@@ -1,7 +1,7 @@
 SunInformed
 =======
 
-SunInformed was a week 9 group project at Makers Academy, where a team of four students spent five days learning React Native and then building and iPhone app to alert users to upcoming sunny weather in London.
+SunInformed was a week 9 group project at Makers Academy, where a team of four students spent five days learning React Native and then building an iPhone app to alert users to upcoming sunny weather in London.
 
 <img width="374" alt="screen shot 2017-06-14 at 17 57 23" src="https://user-images.githubusercontent.com/20523607/27144764-0a649bfe-512b-11e7-8a17-c354b7e6dbbd.png">
 
