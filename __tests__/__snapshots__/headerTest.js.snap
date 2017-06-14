@@ -5,9 +5,11 @@ exports[`sunny app renders header correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#e6f2ff",
-      "height": 65,
+      "backgroundColor": "#0099e6",
+      "height": 45,
       "justifyContent": "center",
+      "marginTop": 20,
+      "paddingBottom": 15,
       "paddingTop": 15,
       "shadowColor": "#000",
       "shadowOffset": Object {
@@ -24,6 +26,7 @@ exports[`sunny app renders header correctly 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
+        "color": "#ffffff",
         "fontSize": 24,
         "fontWeight": "bold",
       }
@@ -31,16 +34,5 @@ exports[`sunny app renders header correctly 1`] = `
   >
     SunInformed
   </Text>
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-    style={
-      Object {
-        "fontSize": 9,
-        "marginTop": 5,
-      }
-    }
-  />
 </View>
 `;

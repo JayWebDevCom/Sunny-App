@@ -198,11 +198,37 @@ class Weather extends Component {
         <Text>
         Nice weather coming up in London:
         {"\n"}{"\n"}
-        {this.renderWeatherDesc()}
         </Text>
+        {this.renderWeatherDesc()}
         </View>
       )
     }
   }
+
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor: 'transparent',
+      alignItems: 'center',
+      // marginTop: 5,
+      marginBottom: 5
+
+    },
+    content: {
+      alignItems: 'center',
+      // flexGrow: 1,
+      justifyContent: 'center',
+      height: 'auto',
+      width: 330,
+      backgroundColor: '#e6ffe6',
+      paddingTop: 20,
+      paddingBottom: 20,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5
+    }
+  });
 
   export default Weather;
